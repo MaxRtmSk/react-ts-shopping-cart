@@ -1,6 +1,6 @@
-import { FC } from 'react';
 import Button from '@material-ui/core/Button';
 // Types
+import { FC } from 'react';
 import { CartItemType } from '../../App';
 // Styles
 import { Wrapper } from './Item.styles';

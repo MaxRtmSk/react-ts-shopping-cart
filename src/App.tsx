@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useQuery } from 'react-query'
 // Components 
 import Item from './components/Item/Item'
+import Cart from './components/Cart/Cart'
 import Drawer from '@material-ui/core/Drawer';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Grid from '@material-ui/core/Grid';
@@ -9,6 +10,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import Badge from '@material-ui/core/Badge';
 // Style
 import { Wrapper, StyledButton } from './App.styles'
+import CartItem from './components/CartItem/CartItem';
 // Types
 export type CartItemType = {
   id: number;
@@ -21,7 +23,8 @@ export type CartItemType = {
 }
 
 
-const getProducts = async (): Promise<CartItemType[]> => await (await fetch('https://fakestoreapi.com/products')).json();
+const getProducts = async (): Promise<CartItemType[]> =>
+  await (await fetch('https://fakestoreapi.com/products')).json();
 
 
 const App = () => {
@@ -36,6 +39,7 @@ const App = () => {
 
   const handleRemoveFromCart = () => null;
 
+
   if (isLoading) return <LinearProgress />
   if (error) return <div>Something went wrong ...</div>
 
@@ -47,7 +51,11 @@ const App = () => {
         onClose={() => {
           setCartOpen(false)
         }}>
-        Cart
+        <Cart
+          cartItems={cartItems}
+          addToCart={handleAddToCart}
+          removeFromCart={handleRemoveFromCart}
+        />
       </Drawer>
       <StyledButton onClick={() => setCartOpen(true)} >
         <Badge badgeContent={getTotalItems(cartItems)} color='error' >
