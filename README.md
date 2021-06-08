@@ -1,7 +1,7 @@
 # Shopping Cart  
 
 <img alt="TypeScript" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="typescript"/> <img src="https://img.shields.io/badge/react%20-%2300D9FF.svg?&style=for-the-badge&logo=react&logoColor=white" alt="react"/>
-
+<br/>
 This is a example shopping cart.
 
 I use: 
